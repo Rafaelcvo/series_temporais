@@ -1,0 +1,43 @@
+---
+title: "Series Temporais"
+author: "Rafael"
+date: "01/02/2020"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Aulas de séries temporais usando R
+
+A aulas estão disponiveis no link https://www.youtube.com/watch?v=YEVKVWu2NLQ
+
+```{r}
+plot(USAccDeaths)
+```
+
+
+```{r}
+summary(USAccDeaths)
+```
+```{r}
+plot(USAccDeaths, type='o')
+```
+
+```{r}
+plot.ts(cbind(USAccDeaths, AirPassengers), main='Mortes X Transporte Aéreo', xlab='Anos')
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
