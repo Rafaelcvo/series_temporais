@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 A aulas estão disponiveis no link https://www.youtube.com/watch?v=YEVKVWu2NLQ
 
-```{r}
+```{r, echo=FALSE}
 plot(USAccDeaths)
 ```
 
@@ -29,9 +29,136 @@ plot(USAccDeaths, type='o')
 plot.ts(cbind(USAccDeaths, AirPassengers), main='Mortes X Transporte Aéreo', xlab='Anos')
 ```
 
+Criando uma amostragem por trimestres.
+
+```{r}
+aggregate(USAccDeaths, nfrequency = 4, FUN = sum)
+```
+
+Agregando pelas medias anuais.
+
+```{r}
+aggregate(USAccDeaths, nfreq=1, FUN = mean)
+```
+
+```{r}
+plot(aggregate(USAccDeaths))
+```
 
 
+Plotando por meses.
 
+```{r}
+monthplot(USAccDeaths, col.base = 2, labels = month.abb)
+```
+
+Usando uma janela de tempo
+
+```{r}
+window(USAccDeaths, start=c(1973,5), end=c(1978,1))
+```
+
+Calculando a diferença de meses a meses
+
+```{r}
+diff(USAccDeaths)
+```
+
+Calculando o logaritmo
+
+```{r}
+log(USAccDeaths)
+```
+
+Analise da função autocorrelação
+
+```{r}
+acf(USAccDeaths, lag.max = 20)
+```
+
+Analise da funação parcial de autocorrelação
+
+```{r}
+pacf(USAccDeaths, lag.max = 20)
+```
+
+
+Verificando a sazionalidade.
+
+```{r}
+plot(stl(USAccDeaths, "periodic"))
+```
+
+
+Iniciando aula 2.
+https://www.youtube.com/watch?v=eFfXRke1PXg
+
+```{r}
+decompose(USAccDeaths)
+```
+
+```{r}
+d = decompose(USAccDeaths)
+```
+
+Visualizando separadamente
+
+```{r}
+plot(d$trend)
+```
+
+Trabalhando com previsoes 
+
+```{r}
+library(forecast)
+```
+
+Usando a media movel
+
+```{r}
+mm = ma(USAccDeaths, order = 6)
+
+mm
+```
+
+
+```{r}
+previsao = forecast(mm, h = 4)
+previsao
+```
+
+
+```{r}
+plot(previsao)
+```
+
+
+Criando um modelo arima.
+
+```{r}
+x = arima(USAccDeaths, order = c(0,1,1))
+
+y = arima(USAccDeaths, order = c(0,1,1), seasonal = list(order=c(0,1,1), period = 6))
+
+previsao = predict(y, n.ahead = 4)
+
+previsao
+```
+
+Fazendo a previsao usando a função autoarima
+```{r}
+ar = auto.arima(USAccDeaths)
+ar
+```
+
+```{r}
+previsao = forecast(ar, h=12)
+previsao
+```
+
+```{r}
+plot(previsao)
+```
 
 
 
