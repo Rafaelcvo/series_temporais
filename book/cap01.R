@@ -18,4 +18,29 @@ max(uni)
 produto <- c('Produto A', 'Produto B', 'Produto C' ,'Produto D', 'Produto E')
 preco <- c(5, 15, 4, 6, 8)
 tabela <- data.frame(produto, preco)
+tabela[4:5,]
+
+# Criando uma nova coluna
+
+tabela$quant <- c(50,100,120,150,200)
+
+tabela[, 'custos'] <- c(2,12,3,5,6)
 tabela
+
+# Trabalhando com o dataset iris
+
+base_flores <- iris
+
+str(base_flores)
+
+head(base_flores)
+
+summary(base_flores)
+
+names(base_flores)
+
+
+
+
+
+
