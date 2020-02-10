@@ -70,3 +70,19 @@ pessoas_csv <- read.csv(file = "datasets/populacao.csv", encoding="ISO-8859-1", 
 
 head(pessoas_csv)
 
+produto <- c('p1', 'p2', 'p3')
+valor <- c(2,3,5)
+tabela <- data.frame(produto, valor)
+tabela
+tabela$dobro <- NA
+tabela
+tabela$triplo <- tabela$valor * 3
+tabela  
+produto  
+  
+  
+  
+  
+  
+  
+  

@@ -1,0 +1,40 @@
+---
+title: "cotacao"
+author: "Rafael"
+date: "10/02/2020"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+# install.packages("quantmod")
+library("quantmod")
+
+acoes <-c("TAEE11.SA", "RPAD3.SA", "REDE3.SA", "STBP3.SA", "PTNT4.SA", "CRIV4.SA", "CTSA3.SA", "LPSB3.SA", "WHRL4.SA", "TASA3.SA", "GOAU4.SA", "TRPL4.SA", "BRIV4.SA")
+getSymbols(acoes, src = "yahoo", warnings = FALSE)
+```
+
+```{r include=FALSE}
+acoes
+```
+
+```{r}
+chartSeries(TAEE11.SA)
+```
+
+
+
+
+```{r}
+chartSeries(RPAD3.SA)
+```
+
+
+
+
+
+
+
+
+
+
+
