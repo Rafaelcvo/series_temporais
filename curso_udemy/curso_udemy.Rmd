@@ -1,0 +1,85 @@
+---
+title: "Curso Udemy"
+author: "Rafael"
+date: "12/02/2020"
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+## Aula 23 do curso da Udemy.  
+Verificando se os dados são estacionários.
+
+```{r, echo=FALSE}
+library(urca)
+library(forecast)
+```
+Usaremos os dados aereos AirPassagers.
+
+```{r, echo=FALSE}
+AirPassengers
+```
+
+Aqui é feito o teste Kpss para verificar se rejeitamos a hipótese nula.
+
+```{r, echo=FALSE}
+x = ur.kpss(AirPassengers)
+x
+```
+
+O teste gerou o valor de 2.7395 muito acima do valor de 0.05, então rejeitamos a hipótese nula.  
+Então neste teste há indicios de que é uma śerie não estacionária.  
+  
+Próximo passa é fazer um processo de diferenciação.
+
+```{r, echo=FALSE}
+z <- diff(AirPassengers)
+x <- ur.kpss(z)
+x
+```
+O processo converteu a série em estacionária. Com o teste Kpss feito após a conversão o valor 0.0146 ficou abaixo
+de 0.05, sendo assim aceitamos a hipótese nula.  
+  
+Uma forma de verificar quantos processos de diferenciação precisão ser efetuados é usar a função ndiffs().  
+
+```{r}
+
+ndiffs(AirPassengers)
+
+```
+
+Vamos comparar as duas séries para identificar as mudanças.
+
+```{r, echo=FALSE}
+# dividindo a tela em duas.
+split.screen(figs = c(2,1))
+screen(1)
+plot(AirPassengers)
+screen(2)
+plot(z)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

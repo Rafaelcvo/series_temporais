@@ -37,6 +37,161 @@ plot(sun2)
 hist(sun2)
 boxplot(sun2)
 
+# Analise residual 
+library(forecast)
+library(ggplot2)
+
+# Gerando um grafico de popularidade dos americanos
+autoplot(presidents)
+
+prev <- auto.arima(presidents)
+
+prev$residuals
+
+autoplot(prev$residuals)
+hist(prev$residuals)
+var(prev$residuals, na.rm = T)
+mean(as.vector(prev$residuals), na.rm = T)
+acf(prev$residuals, na.action = na.pass)
+
+# funcao do forecast que analiza os residuos
+checkresiduals(prev)
+
+# teste estatistico para verificar se os dados estao normalmente distribuidos
+shapiro.test(prev$residuals)
+
+# Saida
+# data:  prev$residuals
+# W = 0.99016, p-value = 0.5862
+# Como os dados estao acima e 0.05 pode se concluir que eles estao normalmente distribuidos 
+
+# transformando uma serie nao estacionaria em estacionaria
+library(urca)
+
+x = ur.kpss(AirPassengers)
+
+# o teste gerou um valor de 2.7395, muito acima do valor de 
+x
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
