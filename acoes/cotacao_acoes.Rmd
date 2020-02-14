@@ -13,12 +13,15 @@ acoes <-c("TAEE11.SA", "RPAD3.SA", "REDE3.SA", "STBP3.SA", "PTNT4.SA", "CRIV4.SA
 getSymbols(acoes, src = "yahoo", warnings = FALSE)
 ```
 
+
 ```{r include=FALSE}
 acoes
 ```
 
 ```{r}
+TAEE11.SA <- na.omit(TAEE11.SA)
 chartSeries(TAEE11.SA)
+addBBands()
 ```
 
 
@@ -28,6 +31,13 @@ chartSeries(TAEE11.SA)
 chartSeries(RPAD3.SA)
 ```
 
+```{r}
+Ações <- c("MGLU3.SA", "PETR3.SA", "VALE3.SA")
+Data_Inicio = as.Date("2019-01-01")
+Data_fim = as.Date("2019-12-31")
+Data_Inicio = as.Date("2019-01-01")
+Data_fim = as.Date("2019-12-31")
+```
 
 
 

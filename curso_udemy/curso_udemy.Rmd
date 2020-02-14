@@ -60,6 +60,60 @@ screen(2)
 plot(z)
 ```
 
+Trabalhando com transformações.
+
+```{r, echo=FALSE}
+library(ggplot2)
+
+t1 <- BoxCox(AirPassengers, lambda = 0)
+autoplot(t1)
+
+
+```
+
+
+```{r}
+t2 <- BoxCox(AirPassengers, lambda = 0.1)
+autoplot(t2)
+```
+
+Gerando um lambda automaticamente.
+
+```{r, echo=FALSE}
+lbd <- BoxCox.lambda(AirPassengers)
+lbd
+t3 <- BoxCox(AirPassengers, lambda = lbd)
+autoplot(t3)
+```
+
+
+Fazendo uma diferenciação.
+
+```{r}
+t4 <- diff(AirPassengers)
+autoplot(t4)
+```
+
+
+```{r}
+t5 <- log10(AirPassengers)
+autoplot(t5)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

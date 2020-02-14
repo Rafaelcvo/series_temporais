@@ -1,0 +1,19 @@
+---
+title: "Pib do Brasil"
+author: "Rafael"
+date: "13/02/2020"
+output: html_document
+---
+
+Análise sobre o pib do Brasil.  
+O arquivo apresenta os dados dos anos de 1990 a 
+```{r}
+library(xlsx)
+df <- read.xlsx('ipeadata[13-02-2020-05-15].xls', sheetIndex = 1)
+
+class(df)
+
+
+
+```
+
