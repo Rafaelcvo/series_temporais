@@ -22,3 +22,22 @@ chartSeries(BRIV4.SA)
 
 
 addBBands()
+
+library(forecast)
+library(ggplot2)
+prev <- c("MGLU3.SA")
+getSymbols(prev, src = "yahoo")
+chartSeries(MGLU3.SA)
+autoplot(MGLU3.SA)
+plot(MGLU3.SA)
+
+
+
+
+
+
+
+
+
+
+
