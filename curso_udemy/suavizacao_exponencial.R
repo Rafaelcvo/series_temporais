@@ -38,14 +38,20 @@ lines(mdl6$mean, col='red')
 mdl7 <- hw(JohnsonJohnson, seasonal = "multiplicative", damped = T, phi=0.9, h=16)
 autoplot(mdl7)
 
+# Aula 41
+mdl8 <- ets(JohnsonJohnson)
+mdl8
 
+prev <- forecast(mdl8, h=16, levels=c(85,90))
+autoplot(prev)
 
+autoplot(decompose(JohnsonJohnson))
 
+mdl9 <- ets(JohnsonJohnson, model = "ZAA", damped = T)
+autoplot(mdl9)
 
-
-
-
-
+mdl10 <- ets(JohnsonJohnson, model = "ZZZ", damped = T)
+autoplot(mdl10)
 
 
 
